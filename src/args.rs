@@ -33,6 +33,7 @@ pub enum GenerateSubcommand {
 
 #[derive(Debug, Parser, PartialEq, Eq)]
 pub enum GenerateSubcommandVersion {
+    #[clap(about = "Generate a UUID using a timestamp and monotonic counter")]
     V1 {
         #[clap(long)]
         seconds: u64,
@@ -42,13 +43,16 @@ pub enum GenerateSubcommandVersion {
         seed: Option<u16>
     },
     V2,
+    #[clap(about = "Generate a UUID using a md5 hash")]
     V3 {
         #[clap(long)]
         namespace: Uuid,
         #[clap(long)]
         name: String,
     },
+    #[clap(about = "Generate random UUID")]
     V4,
+    #[clap(about = "Generate a UUID using a sha1 hash")]
     V5 {
         #[clap(long)]
         namespace: Uuid,
