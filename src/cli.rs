@@ -1,7 +1,7 @@
 use crate::utils;
 
-use anyhow::{Result, anyhow};
-use uuid::{Uuid, Context, Timestamp};
+use anyhow::{anyhow, Result};
+use uuid::{Context, Timestamp, Uuid};
 
 pub fn random() -> Result<Uuid> {
     let uuid = uuid::Uuid::new_v4();

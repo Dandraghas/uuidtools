@@ -2,11 +2,7 @@ use clap::Parser;
 use uuid::Uuid;
 
 #[derive(Debug, Parser, PartialEq, Eq)]
-#[command(
-arg_required_else_help = true,
-about,
-version,
-)]
+#[command(arg_required_else_help = true, about, version)]
 pub struct Args {
     #[clap(subcommand)]
     pub subcommand: Option<Subcommand>,
@@ -20,7 +16,7 @@ pub enum Subcommand {
     Validate {
         #[clap(long)]
         uuid: String,
-    }
+    },
 }
 
 #[derive(Debug, Parser, PartialEq, Eq)]
@@ -28,7 +24,7 @@ pub enum GenerateSubcommand {
     Version {
         #[clap(subcommand)]
         version: GenerateSubcommandVersion,
-    }
+    },
 }
 
 #[derive(Debug, Parser, PartialEq, Eq)]
@@ -40,7 +36,7 @@ pub enum GenerateSubcommandVersion {
         #[clap(long)]
         nanos: u32,
         #[clap(long, help = "Use provided seed, if not present use random one")]
-        seed: Option<u16>
+        seed: Option<u16>,
     },
     V2,
     #[clap(about = "Generate a UUID using a md5 hash")]
@@ -63,5 +59,5 @@ pub enum GenerateSubcommandVersion {
     V8 {
         #[clap(long)]
         data: String,
-    }
+    },
 }
