@@ -35,6 +35,11 @@ pub async fn run(args: Args) -> Result<()> {
 
                     println!("{}", uuid);
                 }
+                GenerateSubcommandVersion::V8 { data } => {
+                    let uuid = cli::data(&data)?;
+
+                    println!("{}", uuid);
+                }
             }
         }
         Some(Subcommand::Validate { uuid }) => {

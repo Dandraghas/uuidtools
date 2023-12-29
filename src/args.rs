@@ -59,4 +59,9 @@ pub enum GenerateSubcommandVersion {
         #[clap(long)]
         name: String,
     },
+    #[clap(about = "Generate a UUID using provided data")]
+    V8 {
+        #[clap(long)]
+        data: String,
+    }
 }
